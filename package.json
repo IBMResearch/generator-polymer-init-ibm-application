@@ -1,0 +1,39 @@
+{
+  "name": "generator-polymer-init-ibm-application",
+  "version": "0.0.0",
+  "description": "Scaffold out an IBM application",
+  "author": "The IBM Research Emergent Solutions authors",
+  "keywords": [
+    "yeoman-generator",
+    "scaffold",
+    "web-component",
+    "polymer"
+  ],
+  "license": "MIT",
+  "repository": "IBMResearch/generator-polymer-init-ibm-application",
+  "main": "generators/index.js",
+  "files": [
+    "generators"
+  ],
+  "dependencies": {
+    "yeoman-generator": "^0.24.0"
+  },
+  "devDependencies": {
+    "eslint-plugin-html": "^1.5.0",
+    "gulp": "^3.9.0",
+    "gulp-eslint": "^3.0.0",
+    "gulp-mocha": "^3.0.0",
+    "gulp-nsp": "^2.4.0",
+    "gulp-plumber": "^1.1.0",
+    "yeoman-assert": "^2.2.0",
+    "yeoman-test": "^1.5.0"
+  },
+  "scripts": {
+    "lint": "gulp lint",
+    "prepublish": "gulp prepublish",
+    "test": "gulp test"
+  },
+  "engines": {
+    "node": ">=4.0"
+  }
+}
