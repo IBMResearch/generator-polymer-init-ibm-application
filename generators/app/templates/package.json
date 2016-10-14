@@ -1,0 +1,22 @@
+{
+  "name": "<%= applicationId %>",
+  "version": "0.0.0",
+  "description": "<%= applicationDescription %>",
+  "author": "The IBM Research Emergent Solutions authors",
+  "license": "MIT",
+  "devDependencies": {
+    "del": "^2.2.0",
+    "eslint-plugin-html": "^1.5.0",
+    "gulp": "gulpjs/gulp#4.0",
+    "gulp-eslint": "^3.0.0",
+    "gulp-if": "^2.0.0",
+    "gulp-imagemin": "^3.0.0",
+    "gulp-jsonmin": "^1.1.0",
+    "merge-stream": "^1.0.0",
+    "polymer-build": "^0.4.0"
+  },
+  "engines": {
+    "node": ">=4.0"
+  },
+  "private": true
+}

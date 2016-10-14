@@ -11,26 +11,47 @@
 var yeoman = require('yeoman-generator');
 
 module.exports = yeoman.Base.extend({
-  prompting: function() {
-    this.log('Welcome to the flawless generator-polymer-init-ibm-application generator!');
+  initializing: function() {
+    // Yeoman replaces dashes with spaces. We want dashes.
+    this.appname = this.appname.replace(/\s+/g, '-');
+  },
 
-    var prompts = [{
-      type: 'confirm',
-      name: 'someAnswer',
-      message: 'Would you like to enable this option?',
-      default: true
-    }];
+  prompting: function() {
+    var prompts = [
+      {
+        name: 'applicationId',
+        type: 'input',
+        message: 'ID of the application',
+        default: this.appname
+      },
+      {
+        name: 'applicationName',
+        type: 'input',
+        message: 'Name of the application',
+        default: this.appname
+      },
+      {
+        name: 'applicationDescription',
+        type: 'input',
+        message: 'Brief description of the application'
+      }
+    ];
 
     return this.prompt(prompts).then(function(props) {
-      // To access props later use this.props.someAnswer;
       this.props = props;
     }.bind(this));
   },
 
   writing: function() {
     this.fs.copy(
-      this.templatePath('dummyfile.txt'),
-      this.destinationPath('dummyfile.txt')
+      this.templatePath('_gitignore'),
+      this.destinationPath('.gitignore')
+    );
+
+    this.fs.copyTpl(
+      this.templatePath() + '/**/!(_)*',
+      this.destinationPath(),
+      this.props
     );
   },
 
