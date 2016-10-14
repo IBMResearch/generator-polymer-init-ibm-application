@@ -14,15 +14,25 @@
     "space-in-parens": ["error", "never"]
   },
   "env": {
+    "browser": true,
     "es6": true
   },
+  "plugins": [
+    "html"
+  ],
+  "settings": {
+    "html/indent": "+2",
+    "html/report-bad-indent": 2
+  },
   "globals": {
-    "__dirname": false,
-    "assert": false,
-    "before": false,
-    "describe": false,
-    "it": false,
+    "Polymer": false,
+    "WCT": false,
+    "fixture": false,
+    "global": false,
     "module": false,
-    "require": false
+    "process": false,
+    "require": false,
+    "suite": false,
+    "test": false
   }
 }
