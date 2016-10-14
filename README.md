@@ -4,6 +4,14 @@
 
 > Scaffold out an IBM application
 
+This template is a starting point for building apps using a basic layout.
+
+This template also demonstrates use of the "PRPL pattern" This pattern allows
+fast first delivery and interaction with the content at the initial route
+requested by the user, along with fast subsequent navigation by pre-caching the
+remaining components required by the app and progressively loading them
+on-demand as the user navigates through the app.
+
 ## Installation
 
 First, install [Polymer CLI](https://github.com/Polymer/polymer-cli) using [npm](https://www.npmjs.com)
