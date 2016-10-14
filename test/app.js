@@ -15,13 +15,37 @@ var helpers = require('yeoman-test');
 describe('generator-polymer-init-ibm-application:app', function() {
   before(function() {
     return helpers.run(path.join(__dirname, '../generators/app'))
-      .withPrompts({someAnswer: true})
+      .withPrompts({
+        applicationId: 'ibm-application',
+        applicationName: 'Application',
+        applicationDescription: 'Application description'
+      })
       .toPromise();
   });
 
   it('creates files', function() {
     assert.file([
-      'dummyfile.txt'
+      'images/manifest/icon-144x144.png',
+      'images/manifest/icon-192x192.png',
+      'images/manifest/icon-48x48.png',
+      'images/manifest/icon-512x512.png',
+      'images/manifest/icon-72x72.png',
+      'images/manifest/icon-96x96.png',
+      'images/favicon.ico',
+      'src/page-404/page-404.html',
+      'src/page-home/page-home.html',
+      'src/app-icons.html',
+      'src/app-shell.html',
+      'src/app-styles.html',
+      '.gitignore',
+      'bower.json',
+      'index.html',
+      'LICENSE',
+      'manifest.json',
+      'package.json',
+      'polymer.json',
+      'README.md',
+      'service-worker.js'
     ]);
   });
 });
