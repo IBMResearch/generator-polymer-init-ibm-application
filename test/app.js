@@ -25,6 +25,10 @@ describe('generator-polymer-init-ibm-application:app', function() {
 
   it('creates files', function() {
     assert.file([
+      'gulp-tasks/clean.js',
+      'gulp-tasks/images.js',
+      'gulp-tasks/lint.js',
+      'gulp-tasks/project.js',
       'images/manifest/icon-144x144.png',
       'images/manifest/icon-192x192.png',
       'images/manifest/icon-48x48.png',
@@ -37,8 +41,10 @@ describe('generator-polymer-init-ibm-application:app', function() {
       'src/app-icons.html',
       'src/app-shell.html',
       'src/app-styles.html',
+      '.eslintrc.json',
       '.gitignore',
       'bower.json',
+      'gulpfile.js',
       'index.html',
       'LICENSE',
       'manifest.json',
