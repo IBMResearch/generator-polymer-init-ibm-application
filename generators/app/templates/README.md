@@ -11,6 +11,12 @@ Install [Polymer CLI](https://github.com/Polymer/polymer-cli) using [npm](https:
 npm install -g polymer-cli
 ```
 
+Install dependencies:
+
+```
+npm install && bower install
+```
+
 ## Start the development server
 
 This command serves the app at `http://localhost:8080` and provides basic URL
