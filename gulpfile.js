@@ -28,7 +28,7 @@ gulp.task('nsp', function(cb) {
 });
 
 gulp.task('test', function(cb) {
-  var mochaErr;
+  let mochaErr;
 
   gulp.src('test/**/*.js')
     .pipe(plumber())
@@ -41,4 +41,6 @@ gulp.task('test', function(cb) {
     });
 });
 
-gulp.task('prepublish', ['nsp']);
+gulp.task('prepublish', gulp.series([
+  'nsp'
+]));
