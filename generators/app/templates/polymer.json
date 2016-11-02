@@ -5,14 +5,14 @@
     "src/page-404/page-404.html",
     "src/page-home/page-home.html"
   ],
-  "sourceGlobs": [
+  "sources": [
     "images/**/*",
     "src/**/*",
     "bower.json",
-    "index.html"
-  ],
-  "includeDependencies": [
-    "bower_components/webcomponentsjs/webcomponents-lite.min.js",
+    "index.html",
     "manifest.json"
+  ],
+  "extraDependencies": [
+    "bower_components/webcomponentsjs/webcomponents-lite.min.js"
   ]
 }

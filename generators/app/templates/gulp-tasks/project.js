@@ -113,8 +113,8 @@ function writeBundledServiceWorker() {
   return polymer.addServiceWorker({
     project: project,
     buildRoot: bundledPath,
-    swConfig: global.config.swPrecacheConfig,
-    serviceWorkerPath: global.config.serviceWorkerPath,
+    swPrecacheConfig: global.config.swPrecacheConfig,
+    path: global.config.serviceWorkerPath,
     bundled: true
   });
 }
@@ -124,8 +124,8 @@ function writeUnbundledServiceWorker() {
   return polymer.addServiceWorker({
     project: project,
     buildRoot: unbundledPath,
-    swConfig: global.config.swPrecacheConfig,
-    serviceWorkerPath: global.config.serviceWorkerPath
+    swPrecacheConfig: global.config.swPrecacheConfig,
+    path: global.config.serviceWorkerPath
   });
 }
 
