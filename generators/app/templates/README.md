@@ -47,6 +47,15 @@ from:
 polymer serve build/bundled
 ```
 
+## Run lint
+
+This command will run [ESLint](https://github.com/eslint/eslint) with the
+[IBM Research ESLint shareable config](https://github.com/IBMResearch/eslint-config-ibmresearch):
+
+```
+npm run lint
+```
+
 ## Run tests
 
 This command will run [Web Component Tester](https://github.com/Polymer/web-component-tester)
