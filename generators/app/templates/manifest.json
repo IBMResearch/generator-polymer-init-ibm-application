@@ -1,5 +1,5 @@
 {
-  "name": "IBM Research - <%= applicationName %>",
+  "name": "<%= applicationName %>",
   "short_name": "<%= applicationName %>",
   "start_url": "/?homescreen=1",
   "display": "standalone",
