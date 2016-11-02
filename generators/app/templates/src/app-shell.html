@@ -94,9 +94,10 @@ The complete set of contributors may be found at https://ibmresearch.github.io/C
       _routePageChanged: function(pageName) {
         this.selectedPage = pageName || this.defaultSelectedPage;
 
-        // Scroll to the top of the page on every *route* change. Use `Polymer.AppLayout.scroll`
-        // with `behavior: 'silent'` to disable header scroll effects during the scroll.
-        Polymer.AppLayout.scroll({ top: 0, behavior: 'silent' });
+        // Scroll to the top of the page on every route change. Use
+        // `Polymer.AppLayout.scroll` with `behavior: 'silent'` to disable
+        // header scroll effects during the scroll.
+        Polymer.AppLayout.scroll({top: 0, behavior: 'silent'});
       },
 
       _selectedPageChanged: function(selectedPage) {
