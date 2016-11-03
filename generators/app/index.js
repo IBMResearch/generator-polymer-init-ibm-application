@@ -44,8 +44,25 @@ module.exports = yeoman.Base.extend({
 
   writing: function() {
     this.fs.copy(
-      this.templatePath('_gitignore'),
-      this.destinationPath('.gitignore')
+      this.templatePath('gulp-tasks/'),
+      this.destinationPath('gulp-tasks/')
+    );
+
+    this.fs.copy(
+      this.templatePath('images/'),
+      this.destinationPath('images/')
+    );
+
+    this.fs.copyTpl(
+      this.templatePath('src/'),
+      this.destinationPath('src/'),
+      this.props
+    );
+
+    this.fs.copyTpl(
+      this.templatePath('test/'),
+      this.destinationPath('test/'),
+      this.props
     );
 
     this.fs.copy(
@@ -53,8 +70,13 @@ module.exports = yeoman.Base.extend({
       this.destinationPath('.eslintrc.json')
     );
 
+    this.fs.copy(
+      this.templatePath('_gitignore'),
+      this.destinationPath('.gitignore')
+    );
+
     this.fs.copyTpl(
-      this.templatePath() + '/**/!(_)*',
+      this.templatePath() + '/!(_)*',
       this.destinationPath(),
       this.props
     );
