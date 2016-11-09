@@ -101,17 +101,20 @@ The complete set of contributors may be found at https://ibmresearch.github.io/C
       },
 
       _selectedPageChanged: function(selectedPage) {
-        this._importPage(selectedPage);
+        if (this._pageAvaliable(selectedPage)) {
+          this._importPage(selectedPage);
+        } else {
+          this._importPage('404');
+        }
       },
 
       _importPage: function(page) {
-        var pageNotExist = !(page in this.pagesPaths);
-        if (pageNotExist) {
-          page = '404';
-        }
-
         var resolvedPageUrl = this.resolveUrl(this.pagesPaths[page]);
         this.importHref(resolvedPageUrl, null, null, true);
+      },
+
+      _pageAvaliable: function(page) {
+        return page in this.pagesPaths;
       }
     });
   </script>
