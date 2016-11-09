@@ -30,7 +30,7 @@ The complete set of contributors may be found at https://ibmresearch.github.io/C
     <app-location route="{{route}}"></app-location>
     <app-route
         route="{{route}}"
-        pattern="/:pageName"
+        pattern="/:page"
         data="{{routeData}}"
         tail="{{routeTail}}"></app-route>
 
@@ -88,11 +88,11 @@ The complete set of contributors may be found at https://ibmresearch.github.io/C
       },
 
       observers: [
-        '_routePageChanged(routeData.pageName)'
+        '_routePageChanged(routeData.page)'
       ],
 
-      _routePageChanged: function(pageName) {
-        this.selectedPage = pageName || this.defaultSelectedPage;
+      _routePageChanged: function(page) {
+        this.selectedPage = page || this.defaultSelectedPage;
 
         // Scroll to the top of the page on every route change. Use
         // `Polymer.AppLayout.scroll` with `behavior: 'silent'` to disable
