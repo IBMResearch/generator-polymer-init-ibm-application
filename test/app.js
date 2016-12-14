@@ -41,6 +41,7 @@ describe('generator-polymer-init-ibm-application:app', function() {
       'src/app-icons.html',
       'src/app-shell.html',
       'src/app-styles.html',
+      'test/.eslintrc.json',
       'test/index.html',
       '.eslintrc.json',
       '.gitignore',
