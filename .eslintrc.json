@@ -4,11 +4,6 @@
     "es6": true
   },
   "globals": {
-    "__dirname": false,
-    "assert": false,
-    "before": false,
-    "describe": false,
-    "it": false,
     "module": false,
     "require": false
   }
