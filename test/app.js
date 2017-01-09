@@ -50,7 +50,8 @@ describe('generator-polymer-init-ibm-application:app', () => {
       'package.json',
       'polymer.json',
       'README.md',
-      'service-worker.js'
+      'service-worker.js',
+      'sw-precache-config.js'
     ]);
   });
 });

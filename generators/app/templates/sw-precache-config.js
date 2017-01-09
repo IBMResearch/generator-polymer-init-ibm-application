@@ -6,15 +6,12 @@
  * The complete set of contributors may be found at https://ibmresearch.github.io/CONTRIBUTORS.txt
  */
 
-'use strict';
-
-const del = require('del');
-
-// Returns a function that returns a Promise to delete directories
-function clean(directories) {
-  return function clean() {
-    return del(directories);
-  }
-}
-
-module.exports = clean;
+module.exports = {
+  staticFileGlobs: [
+    '/bower_components/webcomponentsjs/webcomponents-lite.min.js',
+    '/images/**/*',
+    '/index.html',
+    '/manifest.json'
+  ],
+  navigateFallback: '/index.html'
+};

@@ -44,11 +44,6 @@ module.exports = yeoman.Base.extend({
 
   writing: function() {
     this.fs.copy(
-      this.templatePath('gulp-tasks/'),
-      this.destinationPath('gulp-tasks/')
-    );
-
-    this.fs.copy(
       this.templatePath('images/'),
       this.destinationPath('images/')
     );
