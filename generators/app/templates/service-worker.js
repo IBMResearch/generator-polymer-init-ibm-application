@@ -6,4 +6,6 @@
  * The complete set of contributors may be found at https://ibmresearch.github.io/CONTRIBUTORS.txt
  */
 
+/* eslint-disable no-console */
+
 console.info('Service worker disabled for development, will be generated at build time.');

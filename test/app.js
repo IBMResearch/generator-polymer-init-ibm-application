@@ -26,10 +26,6 @@ describe('generator-polymer-init-ibm-application:app', () => {
 
   it('creates files', () => {
     assert.file([
-      'gulp-tasks/clean.js',
-      'gulp-tasks/images.js',
-      'gulp-tasks/lint.js',
-      'gulp-tasks/project.js',
       'images/manifest/icon-144x144.png',
       'images/manifest/icon-192x192.png',
       'images/manifest/icon-48x48.png',
@@ -54,7 +50,8 @@ describe('generator-polymer-init-ibm-application:app', () => {
       'package.json',
       'polymer.json',
       'README.md',
-      'service-worker.js'
+      'service-worker.js',
+      'sw-precache-config.js'
     ]);
   });
 });
