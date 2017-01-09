@@ -32,9 +32,8 @@ polymer serve
 npm run build
 ```
 
-This will create a `build/` folder with `bundled/` and `unbundled/` sub-folders
-containing a bundled (vulcanized) and unbundled builds, both run through HTML,
-CSS, and JS optimizers.
+This will create a `build/` folder containing a bundled (vulcanized) build, run
+through HTML, CSS, and JS optimizers.
 
 The included `gulpfile.js` relies on [the `polymer-build` library](https://github.com/Polymer/polymer-build),
 the same library that powers Polymer CLI. Follow the comments in the
@@ -44,7 +43,7 @@ You can serve the built versions by giving `polymer serve` a folder to serve
 from:
 
 ```
-polymer serve build/bundled
+polymer serve build
 ```
 
 ## Run lint
