@@ -8,35 +8,27 @@
 
 'use strict';
 
-var path = require('path');
+const path = require('path');
 
-var eslint = require('gulp-eslint');
-var gulp = require('gulp');
-var mocha = require('gulp-mocha');
-var nsp = require('gulp-nsp');
-var plumber = require('gulp-plumber');
+const gulp = require('gulp');
+const mocha = require('gulp-mocha');
+const nsp = require('gulp-nsp');
+const plumber = require('gulp-plumber');
 
-gulp.task('lint', function() {
-  return gulp.src('**/*.{html,js}')
-    .pipe(eslint())
-    .pipe(eslint.format())
-    .pipe(eslint.failAfterError());
-});
-
-gulp.task('nsp', function(cb) {
+gulp.task('nsp', (cb) => {
   nsp({package: path.resolve('package.json')}, cb);
 });
 
-gulp.task('test', function(cb) {
+gulp.task('test', (cb) => {
   let mochaErr;
 
   gulp.src('test/**/*.js')
     .pipe(plumber())
     .pipe(mocha({reporter: 'spec'}))
-    .on('error', function(err) {
+    .on('error', (err) => {
       mochaErr = err;
     })
-    .on('end', function() {
+    .on('end', () => {
       cb(mochaErr);
     });
 });

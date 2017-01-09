@@ -8,7 +8,7 @@
 
 'use strict';
 
-var yeoman = require('yeoman-generator');
+const yeoman = require('yeoman-generator');
 
 module.exports = yeoman.Base.extend({
   initializing: function() {
@@ -17,7 +17,7 @@ module.exports = yeoman.Base.extend({
   },
 
   prompting: function() {
-    var prompts = [
+    let prompts = [
       {
         name: 'applicationId',
         type: 'input',
