@@ -8,12 +8,13 @@
 
 'use strict';
 
-var path = require('path');
-var assert = require('yeoman-assert');
-var helpers = require('yeoman-test');
+const path = require('path');
 
-describe('generator-polymer-init-ibm-application:app', function() {
-  before(function() {
+const assert = require('yeoman-assert');
+const helpers = require('yeoman-test');
+
+describe('generator-polymer-init-ibm-application:app', () => {
+  before(() => {
     return helpers.run(path.join(__dirname, '../generators/app'))
       .withPrompts({
         applicationId: 'ibm-application',
@@ -23,7 +24,7 @@ describe('generator-polymer-init-ibm-application:app', function() {
       .toPromise();
   });
 
-  it('creates files', function() {
+  it('creates files', () => {
     assert.file([
       'gulp-tasks/clean.js',
       'gulp-tasks/images.js',

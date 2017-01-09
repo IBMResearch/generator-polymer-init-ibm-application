@@ -23,7 +23,6 @@
     "eslint-config-ibmresearch": "^0.4.0",
     "eslint-plugin-html": "^1.7.0",
     "gulp": "gulpjs/gulp#4.0",
-    "gulp-eslint": "^3.0.0",
     "gulp-mocha": "^3.0.0",
     "gulp-nsp": "^2.4.0",
     "gulp-plumber": "^1.1.0",
@@ -31,8 +30,8 @@
     "yeoman-test": "^1.5.0"
   },
   "scripts": {
-    "lint": "gulp lint",
     "prepublish": "gulp prepublish",
+    "lint": "eslint . --ext js,html",
     "test": "gulp test"
   },
   "engines": {
