@@ -10,8 +10,6 @@
 
 'use strict';
 
-const path = require('path');
-
 const del = require('del');
 const gulp = require('gulp');
 const gulpif = require('gulp-if');
@@ -22,10 +20,8 @@ const mergeStream = require('merge-stream');
 const polymerBuild = require('polymer-build');
 const uglify = require('gulp-uglify');
 
-const swPrecacheConfigPath = path.join(process.cwd(), 'sw-precache-config.js');
-const swPrecacheConfig = require(swPrecacheConfigPath);
-const polymerJsonPath = path.join(process.cwd(), 'polymer.json');
-const polymerJson = require(polymerJsonPath);
+const swPrecacheConfig = require('./sw-precache-config.js');
+const polymerJson = require('./polymer.json');
 const polymerProject = new polymerBuild.PolymerProject(polymerJson);
 const buildDirectory = 'build';
 
