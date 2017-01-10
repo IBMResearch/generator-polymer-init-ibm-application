@@ -67,7 +67,9 @@ function build() {
             console.log('Analyzing build dependencies...');
           });
 
-        // Okay, now do some bundling
+        // If you want bundling, pass the stream to polymerProject.bundler.
+        // This will bundle dependencies into your fragments so you can lazy
+        // load them.
         buildStream = buildStream.pipe(polymerProject.bundler);
 
         // Okay, time to pipe to the build directory
