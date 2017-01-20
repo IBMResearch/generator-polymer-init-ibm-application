@@ -9,7 +9,6 @@
     "images/**/*",
     "src/**/*",
     "bower.json",
-    "index.html",
     "manifest.json"
   ],
   "extraDependencies": [
