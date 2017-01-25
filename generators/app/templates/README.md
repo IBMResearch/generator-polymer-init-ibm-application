@@ -4,47 +4,40 @@
 
 ## Prerequisites
 
-Install [Polymer CLI](https://github.com/Polymer/polymer-cli) using [npm](https://www.npmjs.com)
-(we assume you have pre-installed [node.js](https://nodejs.org)).
+First, install [Polymer CLI](https://github.com/Polymer/polymer-cli) using
+[npm](https://www.npmjs.com) (we assume you have pre-installed [node.js](https://nodejs.org)).
 
-```
-npm install -g polymer-cli
-```
+    npm install -g polymer-cli
 
-Install dependencies:
+And install the dependencies:
 
-```
-npm install && bower install
-```
+    npm install && bower install
 
 ## Start the development server
 
 This command serves the app at `http://localhost:8080` and provides basic URL
 routing for the app:
 
-```
-polymer serve
-```
+    polymer serve --open
 
 ## Build
 
-```
-npm run build
-```
-
-This will create a `build/` folder containing a bundled (vulcanized) build, run
-through HTML, CSS, and JS optimizers.
-
 The included `gulpfile.js` relies on [the `polymer-build` library](https://github.com/Polymer/polymer-build),
-the same library that powers Polymer CLI. Follow the comments in the
-`gulpfile.js` to add additional steps.
+the same library that powers Polymer CLI. Out of the box it will clean the
+`build` directory, and provide image minification. Follow the comments in the
+`gulpfile.js` to add additional steps like JS transpilers or CSS preprocessors.
 
-You can serve the built versions by giving `polymer serve` a folder to serve
-from:
+Also, generates a service-worker.js file with code to pre-cache the dependencies
+based on the entrypoint and fragments specified in `polymer.json`.
 
-```
-polymer serve build
-```
+    npm run build
+
+## Preview the build
+
+This command serves the minified version of the app at `http://localhost:8080`:
+
+    polymer serve build/
+
 
 ## Run lint
 
@@ -60,15 +53,13 @@ npm run lint
 This command will run [Web Component Tester](https://github.com/Polymer/web-component-tester)
 against the browsers currently installed on your machine:
 
-```
-polymer test
-```
+    polymer test
 
 ### Adding a new view
 
-You can extend the app by adding more views that will be demand-loaded e.g.
-based on the route, or to progressively render non-critical sections of the
+You can extend the app by adding more views that will be demand-loaded
+e.g. based on the route, or to progressively render non-critical sections of the
 application. Each new demand-loaded fragment should be added to the list of
 `fragments` in the included `polymer.json` file. This will ensure those
 components and their dependencies are added to the list of pre-cached components
-(and will have bundles created in the fallback `bundled` build).
+and will be included in the `bundled` build.
