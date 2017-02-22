@@ -23,7 +23,6 @@ const uglify = require('gulp-uglify');
 const swPrecacheConfig = require('./sw-precache-config.js');
 const polymerJson = require('./polymer.json');
 const polymerProject = new polymerBuild.PolymerProject(polymerJson);
-const sourcesHtmlSplitter = new polymerBuild.HtmlSplitter();
 const buildDirectory = 'build';
 
 /**
@@ -37,6 +36,9 @@ function waitFor(stream) {
 }
 
 function build() {
+  let sourcesStreamSplitter = new polymerBuild.HtmlSplitter();
+  let dependenciesStreamSplitter = new polymerBuild.HtmlSplitter();
+
   return new Promise((resolve, reject) => { // eslint-disable-line no-unused-vars
     // Okay, so first thing we do is clear the build directory
     console.log(`Deleting ${buildDirectory} directory...`);
@@ -44,18 +46,21 @@ function build() {
       .then(() => {
         // Okay, now let's get your source files
         let sourcesStream = polymerProject.sources()
-          .pipe(sourcesHtmlSplitter.split())
-          .pipe(gulpif(/\.js$/, uglify()))
-          // .pipe(gulpif(/\.css$/, cssSlam()))
+          .pipe(gulpif(/\.(png|gif|jpg|svg)$/, imagemin()))
+          .pipe(sourcesStreamSplitter.split())
           .pipe(gulpif(/\.html$/, htmlmin({
             collapseWhitespace: true
           })))
-          .pipe(gulpif(/\.(png|gif|jpg|svg)$/, imagemin()))
+          .pipe(gulpif(/\.js$/, uglify()))
           .pipe(gulpif(/\.json$/, jsonmin()))
-          .pipe(sourcesHtmlSplitter.rejoin());
+          .pipe(sourcesStreamSplitter.rejoin());
 
-        // Okay, now let's do the same to your dependencies
-        let dependenciesStream = polymerProject.dependencies();
+        // Similarly, you can get your dependencies seperately and perform any
+        // dependency-only optimizations here as well.
+        let dependenciesStream = polymerProject.dependencies()
+          .pipe(dependenciesStreamSplitter.split())
+          // Add any dependency optimizations here.
+          .pipe(dependenciesStreamSplitter.rejoin());
 
         // Okay, now let's merge them into a single build stream
         let buildStream = mergeStream(sourcesStream, dependenciesStream)
