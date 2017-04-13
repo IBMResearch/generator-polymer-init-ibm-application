@@ -6,6 +6,8 @@
  * The complete set of contributors may be found at https://ibmresearch.github.io/CONTRIBUTORS.txt
  */
 
+/* eslint-env node */
+
 module.exports = {
   staticFileGlobs: [
     '/bower_components/webcomponentsjs/webcomponents-lite.min.js',

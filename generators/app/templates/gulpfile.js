@@ -6,6 +6,7 @@
  * The complete set of contributors may be found at https://ibmresearch.github.io/CONTRIBUTORS.txt
  */
 
+/* eslint-env es6, node */
 /* eslint-disable no-console */
 
 'use strict';
