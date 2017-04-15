@@ -2,7 +2,7 @@
   "name": "<%= applicationId %>",
   "version": "0.0.0",
   "description": "<%= applicationDescription %>",
-  "author": "The IBM Research Emergent Solutions authors",
+  "author": "The IBM Research authors",
   "license": "MIT",
   "devDependencies": {
     "del": "^2.2.0",
