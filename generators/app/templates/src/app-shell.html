@@ -42,7 +42,7 @@ The complete set of contributors may be found at https://ibmresearch.github.io/C
           </a>
           <span main-title spacer><%= applicationName %></span>
           <ibm-tabs
-              selected="[[selectedPage]]"
+              selected="[[_selectedPage]]"
               attr-for-selected="page-name"
               role="navigation">
             <a href="/" tabindex="-1">
@@ -52,7 +52,7 @@ The complete set of contributors may be found at https://ibmresearch.github.io/C
         </ibm-toolbar>
       </app-header>
       <iron-pages
-          selected="[[selectedPage]]"
+          selected="[[_selectedPage]]"
           attr-for-selected="page-name"
           fallback-selection="404"
           role="main">
@@ -66,17 +66,17 @@ The complete set of contributors may be found at https://ibmresearch.github.io/C
       is: 'app-shell',
 
       properties: {
-        selectedPage: {
-          type: String,
-          observer: '_selectedPageChanged'
-        },
-
         defaultSelectedPage: {
           type: String,
           value: 'home'
         },
 
-        pagesPaths: {
+        _selectedPage: {
+          type: String,
+          observer: '_selectedPageChanged'
+        },
+
+        _pagesPaths: {
           type: Object,
           value: function() {
             return {
@@ -88,11 +88,11 @@ The complete set of contributors may be found at https://ibmresearch.github.io/C
       },
 
       observers: [
-        '_routePageChanged(routeData.page)'
+        '_routePageChanged(_routeData.page)'
       ],
 
       _routePageChanged: function(page) {
-        this.selectedPage = page || this.defaultSelectedPage;
+        this._selectedPage = page || this.defaultSelectedPage;
 
         // Scroll to the top of the page on every route change. Use
         // `Polymer.AppLayout.scroll` with `behavior: 'silent'` to disable
@@ -100,21 +100,21 @@ The complete set of contributors may be found at https://ibmresearch.github.io/C
         Polymer.AppLayout.scroll({top: 0, behavior: 'silent'});
       },
 
-      _selectedPageChanged: function(selectedPage) {
-        if (this._pageAvaliable(selectedPage)) {
-          this._importPage(selectedPage);
+      _selectedPageChanged: function(_selectedPage) {
+        if (this._pageAvaliable(_selectedPage)) {
+          this._importPage(_selectedPage);
         } else {
           this._importPage('404');
         }
       },
 
       _importPage: function(page) {
-        var resolvedPageUrl = this.resolveUrl(this.pagesPaths[page]);
+        var resolvedPageUrl = this.resolveUrl(this._pagesPaths[page]);
         this.importHref(resolvedPageUrl, null, null, true);
       },
 
       _pageAvaliable: function(page) {
-        return page in this.pagesPaths;
+        return page in this._pagesPaths;
       }
     });
   </script>
