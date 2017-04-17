@@ -31,8 +31,8 @@ The complete set of contributors may be found at https://ibmresearch.github.io/C
     <app-route
         route="{{route}}"
         pattern="/:page"
-        data="{{routeData}}"
-        tail="{{routeTail}}"></app-route>
+        data="{{_routeData}}"
+        tail="{{_routeTail}}"></app-route>
 
     <app-header-layout>
       <app-header fixed>
@@ -69,6 +69,14 @@ The complete set of contributors may be found at https://ibmresearch.github.io/C
         defaultSelectedPage: {
           type: String,
           value: 'home'
+        },
+
+        _routeData: {
+          type: Object
+        },
+
+        _routeTail: {
+          type: Object
         },
 
         _selectedPage: {

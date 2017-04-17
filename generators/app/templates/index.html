@@ -51,7 +51,8 @@ The complete set of contributors may be found at https://ibmresearch.github.io/C
         lazyRegister: true
       };
 
-      // Load webcomponentsjs polyfill if browser does not support native Web Components
+      // Load the webcomponentsjs polyfill if browser does not support native
+      // Web Components
       (function() {
         'use strict';
 
@@ -65,6 +66,7 @@ The complete set of contributors may be found at https://ibmresearch.github.io/C
           }
         };
 
+        // eslint-disable-next-line no-extra-parens
         var webComponentsSupported = (
           'registerElement' in document
           && 'import' in document.createElement('link')
