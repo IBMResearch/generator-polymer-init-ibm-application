@@ -19,8 +19,8 @@
     "yeoman-generator": "^0.24.0"
   },
   "devDependencies": {
-    "eslint": "^3.14.0",
-    "eslint-config-ibmresearch": "^0.5.0",
+    "eslint": "^3.19.0",
+    "eslint-config-ibmresearch": "^0.6.0",
     "eslint-plugin-html": "^2.0.0",
     "gulp": "gulpjs/gulp#4.0",
     "gulp-mocha": "^3.0.0",

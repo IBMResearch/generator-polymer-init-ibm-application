@@ -37,7 +37,7 @@ function waitFor(stream) {
 }
 
 function build() {
-  return new Promise((resolve, reject) => { // eslint-disable-line no-unused-vars
+  return new Promise((resolve) => {
     // Let's create some inline code splitters.
     let sourcesStreamSplitter = new polymerBuild.HtmlSplitter();
     let dependenciesStreamSplitter = new polymerBuild.HtmlSplitter();
@@ -90,6 +90,7 @@ function build() {
       })
       .then(() => {
         console.log('Generating the Service Worker...');
+
         return polymerBuild.addServiceWorker({
           project: polymerProject,
           buildRoot: buildDirectory,
