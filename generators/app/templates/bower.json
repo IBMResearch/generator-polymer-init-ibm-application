@@ -9,7 +9,8 @@
     "iron-iconset-svg": "PolymerElements/iron-iconset-svg#^1.0.0",
     "iron-pages": "PolymerElements/iron-pages#^1.0.0",
     "iron-selector": "PolymerElements/iron-selector#^1.5.0",
-    "polymer": "Polymer/polymer#^1.8.0"
+    "polymer": "Polymer/polymer#^1.9.0",
+    "webcomponentsjs": "webcomponents/webcomponentsjs#^0.7.0"
   },
   "devDependencies": {
     "web-component-tester": "^5.0.0"
