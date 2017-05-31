@@ -5,9 +5,13 @@
 ## Prerequisites
 
 First, install [Polymer CLI](https://github.com/Polymer/polymer-cli) using
-[npm](https://www.npmjs.com) (we assume you have pre-installed [node.js](https://nodejs.org)).
+[npm](https://www.npmjs.com) (we assume you have pre-installed [node.js](https://nodejs.org)):
 
     npm install -g polymer-cli
+
+Second, install [Bower](https://bower.io):
+
+    npm install -g bower
 
 And install the dependencies:
 
@@ -15,7 +19,7 @@ And install the dependencies:
 
 ## Start the development server
 
-This command serves the app at `http://localhost:8080` and provides basic URL
+This command serves the app at `http://127.0.0.1:8081` and provides basic URL
 routing for the app:
 
     polymer serve --open
@@ -30,30 +34,37 @@ the same library that powers Polymer CLI. Out of the box it will clean the
 Also, generates a service-worker.js file with code to pre-cache the dependencies
 based on the entrypoint and fragments specified in `polymer.json`.
 
+Command for development build:
+
     npm run build
+
+Command for production build:
+
+    npm run build:production
 
 ## Preview the build
 
-This command serves the minified version of the app at `http://localhost:8080`:
+This command serves the minified version of the app at `http://127.0.0.1:8081`:
 
-    polymer serve build/
-
+    polymer serve build/ --open
 
 ## Run lint
 
 This command will run [ESLint](https://github.com/eslint/eslint) with the
 [IBM Research ESLint shareable config](https://github.com/IBMResearch/eslint-config-ibmresearch):
 
-```
-npm run lint
-```
+    npm run lint
 
 ## Run tests
 
 This command will run [Web Component Tester](https://github.com/Polymer/web-component-tester)
 against the browsers currently installed on your machine:
 
-    polymer test
+    npm run test
+
+This command will build the project to verify the integration:
+
+    npm run test:integration
 
 ### Adding a new view
 
@@ -62,4 +73,4 @@ e.g. based on the route, or to progressively render non-critical sections of the
 application. Each new demand-loaded fragment should be added to the list of
 `fragments` in the included `polymer.json` file. This will ensure those
 components and their dependencies are added to the list of pre-cached components
-and will be included in the `bundled` build.
+and will be included in the bundled build.
