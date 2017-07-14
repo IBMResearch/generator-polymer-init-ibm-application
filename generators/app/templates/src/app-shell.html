@@ -27,17 +27,21 @@ The complete set of contributors may be found at https://ibmresearch.github.io/C
       }
     </style>
 
-    <app-location route="{{route}}"></app-location>
+    <app-location
+        route="{{route}}"
+        url-space-regex="^[[rootPath]]">
+    </app-location>
     <app-route
         route="{{route}}"
-        pattern="/:page"
+        pattern="[[rootPath]]:page"
         data="{{_routeData}}"
-        tail="{{_routeTail}}"></app-route>
+        tail="{{_routeTail}}">
+    </app-route>
 
     <app-header-layout>
       <app-header fixed>
         <ibm-toolbar>
-          <a href="/" title="Go home">
+          <a href="[[rootPath]]" title="Go home">
             <ibm-toolbar-logo></ibm-toolbar-logo>
           </a>
           <span main-title spacer><%= applicationName %></span>
@@ -45,7 +49,7 @@ The complete set of contributors may be found at https://ibmresearch.github.io/C
               selected="[[_selectedPage]]"
               attr-for-selected="page-name"
               role="navigation">
-            <a href="/" tabindex="-1">
+            <a href="[[rootPath]]" tabindex="-1">
               <ibm-tab page-name="home">Home</ibm-tab>
             </a>
           </ibm-tabs>

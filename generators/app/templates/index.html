@@ -15,10 +15,22 @@ The complete set of contributors may be found at https://ibmresearch.github.io/C
     <title><%= applicationName %></title>
     <meta name="description" content="<%= applicationDescription %>">
 
-    <link rel="icon" href="/images/favicon.ico">
+    <!--
+      The `<base>` tag below is present to support two advanced deployment options:
+      1) Differential serving. 2) Serving from a non-root path.
+
+      Instead of manually editing the `<base>` tag yourself, you should generally either:
+      a) Add a `basePath` property to the build configuration in your `polymer.json`.
+      b) Use the `--base-path` command-line option for `polymer build`.
+
+      Note: If you intend to serve from a non-root path, see [polymer-root-path] below.
+    -->
+    <base href="/">
+
+    <link rel="icon" href="images/favicon.ico">
 
     <!-- See https://goo.gl/OOhYW5 -->
-    <link rel="manifest" href="/manifest.json">
+    <link rel="manifest" href="manifest.json">
 
     <!-- See https://goo.gl/qRE0vM -->
     <meta name="theme-color" content="#4178be">
@@ -33,14 +45,14 @@ The complete set of contributors may be found at https://ibmresearch.github.io/C
     <meta name="apple-mobile-web-app-title" content="<%= applicationName %>">
 
     <!-- Homescreen icons -->
-    <link rel="apple-touch-icon" href="/images/manifest/icon-48x48.png">
-    <link rel="apple-touch-icon" sizes="72x72" href="/images/manifest/icon-72x72.png">
-    <link rel="apple-touch-icon" sizes="96x96" href="/images/manifest/icon-96x96.png">
-    <link rel="apple-touch-icon" sizes="144x144" href="/images/manifest/icon-144x144.png">
-    <link rel="apple-touch-icon" sizes="192x192" href="/images/manifest/icon-192x192.png">
+    <link rel="apple-touch-icon" href="images/manifest/icon-48x48.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="images/manifest/icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="96x96" href="images/manifest/icon-96x96.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="images/manifest/icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="192x192" href="images/manifest/icon-192x192.png">
 
     <!-- Tile icon for Windows 8 (144x144 + tile color) -->
-    <meta name="msapplication-TileImage" content="/images/manifest/icon-144x144.png">
+    <meta name="msapplication-TileImage" content="images/manifest/icon-144x144.png">
     <meta name="msapplication-TileColor" content="#4178be">
     <meta name="msapplication-tap-highlight" content="no">
 
@@ -50,6 +62,20 @@ The complete set of contributors may be found at https://ibmresearch.github.io/C
         dom: 'shadow',
         lazyRegister: true
       };
+
+      /**
+       * [polymer-root-path]
+       *
+       * By default, we set `Polymer.rootPath` to the server root path (`/`).
+       * Leave this line unchanged if you intend to serve your app from the root
+       * path (e.g., with URLs like `my.domain/` and `my.domain/view1`).
+       *
+       * If you intend to serve your app from a non-root path (e.g., with URLs
+       * like `my.domain/my-app/` and `my.domain/my-app/view1`), edit this line
+       * to indicate the path from which you'll be serving, including leading
+       * and trailing slashes (e.g., `/my-app/`).
+       */
+      window.Polymer.rootPath = '/';
 
       // Load the webcomponentsjs polyfill if browser does not support native
       // Web Components
@@ -76,7 +102,7 @@ The complete set of contributors may be found at https://ibmresearch.github.io/C
         if (!webComponentsSupported) {
           var script = document.createElement('script');
           script.async = true;
-          script.src = '/bower_components/webcomponentsjs/webcomponents-lite.min.js';
+          script.src = 'bower_components/webcomponentsjs/webcomponents-lite.min.js';
           script.onload = onload;
           document.head.appendChild(script);
         } else {
@@ -87,12 +113,14 @@ The complete set of contributors may be found at https://ibmresearch.github.io/C
       // Load pre-caching Service Worker
       if ('serviceWorker' in navigator) {
         window.addEventListener('load', function() {
-          navigator.serviceWorker.register('/service-worker.js');
+          navigator.serviceWorker.register('service-worker.js', {
+            scope: Polymer.rootPath
+          });
         });
       }
     </script>
 
-    <link rel="import" href="/src/app-shell.html">
+    <link rel="import" href="src/app-shell.html">
 
     <style>
       body {

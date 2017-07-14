@@ -1,7 +1,7 @@
 {
   "name": "<%= applicationName %>",
   "short_name": "<%= applicationName %>",
-  "start_url": "/?homescreen=1",
+  "start_url": "./?utm_source=homescreen",
   "display": "standalone",
   "theme_color": "#4178be",
   "background_color": "#ffffff",
