@@ -5,17 +5,17 @@
 ## Prerequisites
 
 First, install [Polymer CLI](https://github.com/Polymer/polymer-cli) using
-[npm](https://www.npmjs.com) (we assume you have pre-installed [node.js](https://nodejs.org)):
+[yarn](https://yarnpkg.com) (we assume you have pre-installed [node.js](https://nodejs.org)):
 
-    npm install -g polymer-cli
+    yarn global add polymer-cli
 
 Second, install [Bower](https://bower.io):
 
-    npm install -g bower
+    yarn global add bower
 
 And install the dependencies:
 
-    npm install && bower install
+    yarn install && bower install
 
 ## Start the development server
 
@@ -36,11 +36,11 @@ based on the entrypoint and fragments specified in `polymer.json`.
 
 Command for development build:
 
-    npm run build
+    yarn run build
 
 Command for production build:
 
-    npm run build:production
+    yarn run build:production
 
 ## Preview the build
 
@@ -53,20 +53,20 @@ This command serves the minified version of the app at `http://127.0.0.1:8081`:
 This command will run [ESLint](https://github.com/eslint/eslint) with the
 [IBM Research ESLint shareable config](https://github.com/IBMResearch/eslint-config-ibmresearch):
 
-    npm run lint
+    yarn run lint
 
 ## Run tests
 
 This command will run [Web Component Tester](https://github.com/Polymer/web-component-tester)
 against the browsers currently installed on your machine:
 
-    npm run test
+    yarn run test
 
 This command will build the project to verify the integration:
 
-    npm run test:integration
+    yarn run test:integration
 
-### Adding a new view
+## Adding a new view
 
 You can extend the app by adding more views that will be demand-loaded
 e.g. based on the route, or to progressively render non-critical sections of the
