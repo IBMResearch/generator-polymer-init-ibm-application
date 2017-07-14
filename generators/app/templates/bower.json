@@ -13,7 +13,7 @@
     "webcomponentsjs": "webcomponents/webcomponentsjs#^0.7.0"
   },
   "devDependencies": {
-    "web-component-tester": "^5.0.0"
+    "web-component-tester": "Polymer/web-component-tester#^5.0.0"
   },
   "private": true
 }
