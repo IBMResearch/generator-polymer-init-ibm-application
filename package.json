@@ -1,6 +1,6 @@
 {
   "name": "generator-polymer-init-ibm-application",
-  "version": "0.5.0",
+  "version": "0.6.0",
   "description": "Scaffold out an IBM application",
   "author": "The IBM Research authors",
   "keywords": [
