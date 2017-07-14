@@ -58,10 +58,10 @@ The complete set of contributors may be found at https://ibmresearch.github.io/C
       <iron-pages
           selected="[[_selectedPage]]"
           attr-for-selected="page-name"
-          fallback-selection="404"
+          fallback-selection="notFound"
           role="main">
         <page-home page-name="home"></page-home>
-        <page-404 page-name="404"></page-404>
+        <page-not-found page-name="notFound"></page-not-found>
       </iron-pages>
     </app-header-layout>
   </template>
@@ -93,7 +93,7 @@ The complete set of contributors may be found at https://ibmresearch.github.io/C
           value: function() {
             return {
               home: 'page-home/page-home.html',
-              404: 'page-404/page-404.html'
+              notFound: 'page-not-found/page-not-found.html'
             };
           }
         }
@@ -116,7 +116,7 @@ The complete set of contributors may be found at https://ibmresearch.github.io/C
         if (this._pageAvaliable(_selectedPage)) {
           this._importPage(_selectedPage);
         } else {
-          this._importPage('404');
+          this._importPage('notFound');
         }
       },
 

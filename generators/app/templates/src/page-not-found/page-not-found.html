@@ -8,19 +8,34 @@ The complete set of contributors may be found at https://ibmresearch.github.io/C
 
 <link rel="import" href="../../bower_components/polymer/polymer.html">
 
-<dom-module id="page-404">
+<dom-module id="page-not-found">
   <template>
     <style>
       :host {
         display: block;
+
+        padding: 16px;
+
+        text-align: center;
+      }
+
+      h1 {
+        font-size: 1.5em;
+        font-weight: normal;
+      }
+
+      h2 {
+        font-size: 1em;
+        font-weight: normal;
       }
     </style>
 
-    page-404
+    <h1>Oops! Content not found</h1>
+    <h2>Try <a href="[[rootPath]]">go to home</a></h2>
   </template>
   <script>
     Polymer({
-      is: 'page-404'
+      is: 'page-not-found'
     });
   </script>
 </dom-module>
