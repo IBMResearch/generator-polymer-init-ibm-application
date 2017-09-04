@@ -1,16 +1,16 @@
 {
   "name": "<%= applicationId %>",
   "dependencies": {
-    "app-layout": "PolymerElements/app-layout#^1.0.0",
-    "app-route": "PolymerElements/app-route#^1.0.0",
-    "ibm-tabs": "IBMResearch/ibm-tabs#^1.0.0",
-    "ibm-toolbar": "IBMResearch/ibm-toolbar#^1.0.0",
-    "iron-flex-layout": "PolymerElements/iron-flex-layout#^1.3.0",
-    "iron-iconset-svg": "PolymerElements/iron-iconset-svg#^1.0.0",
-    "iron-pages": "PolymerElements/iron-pages#^1.0.0",
-    "iron-selector": "PolymerElements/iron-selector#^1.5.0",
-    "polymer": "Polymer/polymer#^1.9.0",
-    "webcomponentsjs": "webcomponents/webcomponentsjs#^0.7.0"
+    "app-layout": "PolymerElements/app-layout#^2.0.1",
+    "app-route": "PolymerElements/app-route#^2.0.2",
+    "ibm-tabs": "IBMResearch/ibm-tabs#^2.0.1",
+    "ibm-toolbar": "IBMResearch/ibm-toolbar#^2.0.2",
+    "iron-flex-layout": "PolymerElements/iron-flex-layout#^2.0.0",
+    "iron-iconset-svg": "PolymerElements/iron-iconset-svg#^2.1.0",
+    "iron-pages": "PolymerElements/iron-pages#^2.0.0",
+    "iron-selector": "PolymerElements/iron-selector#^2.0.0",
+    "polymer": "Polymer/polymer#^2.0.0",
+    "webcomponentsjs": "webcomponents/webcomponentsjs#^2.0.0"
   },
   "devDependencies": {
     "web-component-tester": "Polymer/web-component-tester#^5.0.0"
