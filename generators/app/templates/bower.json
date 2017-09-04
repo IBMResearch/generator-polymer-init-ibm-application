@@ -10,7 +10,7 @@
     "iron-pages": "PolymerElements/iron-pages#^2.0.0",
     "iron-selector": "PolymerElements/iron-selector#^2.0.0",
     "polymer": "Polymer/polymer#^2.0.0",
-    "webcomponentsjs": "webcomponents/webcomponentsjs#^2.0.0"
+    "webcomponentsjs": "webcomponents/webcomponentsjs#^1.0.0"
   },
   "devDependencies": {
     "web-component-tester": "Polymer/web-component-tester#^5.0.0"
