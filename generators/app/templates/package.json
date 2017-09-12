@@ -6,9 +6,9 @@
   "license": "MIT",
   "devDependencies": {
     "del": "^3.0.0",
-    "eslint": "^3.19.0",
-    "eslint-config-ibmresearch": "^0.6.0",
-    "eslint-plugin-html": "^2.0.0",
+    "eslint": "^4.5.0",
+    "eslint-config-ibmresearch": "^0.8.0",
+    "eslint-plugin-html": "^3.2.0",
     "gulp": "gulpjs/gulp#4.0",
     "gulp-htmlmin": "^3.0.0",
     "gulp-if": "^2.0.0",
@@ -17,7 +17,7 @@
     "gulp-replace": "^0.6.0",
     "gulp-uglify": "^3.0.0",
     "merge-stream": "^1.0.0",
-    "polymer-build": "^1.6.0"
+    "polymer-build": "^2.0.0"
   },
   "scripts": {
     "lint:eslint": "eslint . --ext js,html --ignore-path .gitignore",
