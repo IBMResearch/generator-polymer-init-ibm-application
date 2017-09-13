@@ -126,7 +126,7 @@ The complete set of contributors may be found at https://ibmresearch.github.io/C
 
       _importPage(page) {
         var resolvedPageUrl = this.resolveUrl(this._pagesPaths[page]);
-        this.importHref(resolvedPageUrl, null, null, true);
+        Polymer.importHref(resolvedPageUrl, null, null, true);
       }
 
       _pageAvaliable(page) {
