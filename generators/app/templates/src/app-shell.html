@@ -66,9 +66,16 @@ The complete set of contributors may be found at https://ibmresearch.github.io/C
     </app-header-layout>
   </template>
   <script>
+
+    /**
+    * @polymer
+    * @extends HTMLElement
+    */
     class AppShell extends Polymer.Element {
 
-      static get is() { return 'app-shell'; }
+      static get is() {
+        return 'app-shell';
+      }
 
       static get properties() {
         return {
@@ -95,13 +102,13 @@ The complete set of contributors may be found at https://ibmresearch.github.io/C
               };
             }
           }
-        }
+        };
       }
 
       static get observers() {
         return [
           '_routePageChanged(_routeData.page)'
-        ]
+        ];
       }
 
       _routePageChanged(page) {

@@ -20,8 +20,14 @@ The complete set of contributors may be found at https://ibmresearch.github.io/C
   </template>
   <script>
 
+    /**
+    * @polymer
+    * @extends HTMLElement
+    */
     class PageHome extends Polymer.Element {
-      static get is() { return 'page-home'; }
+      static get is() {
+        return 'page-home';
+      }
     }
 
     customElements.define(PageHome.is, PageHome);

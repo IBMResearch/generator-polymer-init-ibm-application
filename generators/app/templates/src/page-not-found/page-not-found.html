@@ -35,8 +35,14 @@ The complete set of contributors may be found at https://ibmresearch.github.io/C
   </template>
   <script>
 
+    /**
+    * @polymer
+    * @extends HTMLElement
+    */
     class PageNotFound extends Polymer.Element {
-      static get is() { return 'page-not-found'; }
+      static get is() {
+        return 'page-not-found';
+      }
     }
 
     customElements.define(PageNotFound.is, PageNotFound);
