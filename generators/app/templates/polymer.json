@@ -2,8 +2,8 @@
   "entrypoint": "index.html",
   "shell": "src/app-shell.html",
   "fragments": [
-    "src/page-home/page-home.html",
-    "src/page-not-found/page-not-found.html"
+    "src/pages/page-home.html",
+    "src/pages/page-not-found.html"
   ],
   "sources": [
     "images/**/*",
