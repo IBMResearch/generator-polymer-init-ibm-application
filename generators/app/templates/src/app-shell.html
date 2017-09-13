@@ -66,13 +66,7 @@ The complete set of contributors may be found at https://ibmresearch.github.io/C
     </app-header-layout>
   </template>
   <script>
-
-    /**
-    * @polymer
-    * @extends HTMLElement
-    */
     class AppShell extends Polymer.Element {
-
       static get is() {
         return 'app-shell';
       }
@@ -83,16 +77,20 @@ The complete set of contributors may be found at https://ibmresearch.github.io/C
             type: String,
             value: 'home'
           },
+
           _routeData: {
             type: Object
           },
+
           _routeTail: {
             type: Object
           },
+
           _selectedPage: {
             type: String,
             observer: '_selectedPageChanged'
           },
+
           _pagesPaths: {
             type: Object,
             value: function() {
@@ -136,10 +134,8 @@ The complete set of contributors may be found at https://ibmresearch.github.io/C
       _pageAvaliable(page) {
         return page in this._pagesPaths;
       }
-
     }
 
     customElements.define(AppShell.is, AppShell);
-
   </script>
 </dom-module>
