@@ -6,7 +6,7 @@ The complete set of authors may be found at https://ibmresearch.github.io/AUTHOR
 The complete set of contributors may be found at https://ibmresearch.github.io/CONTRIBUTORS.txt
 -->
 
-<link rel="import" href="../bower_components/polymer/polymer.html">
+<link rel="import" href="../bower_components/polymer/polymer-element.html">
 <link rel="import" href="../bower_components/app-layout/app-header/app-header.html">
 <link rel="import" href="../bower_components/app-layout/app-header-layout/app-header-layout.html">
 <link rel="import" href="../bower_components/app-route/app-location.html">
@@ -15,9 +15,7 @@ The complete set of contributors may be found at https://ibmresearch.github.io/C
 <link rel="import" href="../bower_components/ibm-tabs/ibm-tab.html">
 <link rel="import" href="../bower_components/ibm-toolbar/ibm-toolbar.html">
 <link rel="import" href="../bower_components/ibm-toolbar/ibm-toolbar-logo.html">
-<link rel="import" href="../bower_components/iron-flex-layout/iron-flex-layout.html">
 <link rel="import" href="../bower_components/iron-pages/iron-pages.html">
-<link rel="import" href="../bower_components/iron-selector/iron-selector.html">
 
 <dom-module id="app-shell">
   <template>
@@ -39,7 +37,7 @@ The complete set of contributors may be found at https://ibmresearch.github.io/C
     </app-route>
 
     <app-header-layout>
-      <app-header fixed>
+      <app-header slot="header" fixed>
         <ibm-toolbar>
           <a href="[[rootPath]]" title="Go home">
             <ibm-toolbar-logo></ibm-toolbar-logo>
@@ -66,68 +64,76 @@ The complete set of contributors may be found at https://ibmresearch.github.io/C
     </app-header-layout>
   </template>
   <script>
-    Polymer({
-      is: 'app-shell',
+    class AppShell extends Polymer.Element {
+      static get is() {
+        return 'app-shell';
+      }
 
-      properties: {
-        defaultSelectedPage: {
-          type: String,
-          value: 'home'
-        },
+      static get properties() {
+        return {
+          defaultSelectedPage: {
+            type: String,
+            value: 'home'
+          },
 
-        _routeData: {
-          type: Object
-        },
+          _routeData: {
+            type: Object
+          },
 
-        _routeTail: {
-          type: Object
-        },
+          _routeTail: {
+            type: Object
+          },
 
-        _selectedPage: {
-          type: String,
-          observer: '_selectedPageChanged'
-        },
+          _selectedPage: {
+            type: String,
+            observer: '_selectedPageChanged'
+          },
 
-        _pagesPaths: {
-          type: Object,
-          value: function() {
-            return {
-              home: 'page-home/page-home.html',
-              notFound: 'page-not-found/page-not-found.html'
-            };
+          _pagesPaths: {
+            type: Object,
+            value: function() {
+              return {
+                home: 'page-home/page-home.html',
+                notFound: 'page-not-found/page-not-found.html'
+              };
+            }
           }
-        }
-      },
+        };
+      }
 
-      observers: [
-        '_routePageChanged(_routeData.page)'
-      ],
+      static get observers() {
+        return [
+          '_routePageChanged(_routeData.page)'
+        ];
+      }
 
-      _routePageChanged: function(page) {
+      _routePageChanged(page) {
         this._selectedPage = page || this.defaultSelectedPage;
 
         // Scroll to the top of the page on every route change. Use
         // `Polymer.AppLayout.scroll` with `behavior: 'silent'` to disable
         // header scroll effects during the scroll.
         Polymer.AppLayout.scroll({ top: 0, behavior: 'silent' });
-      },
+      }
 
-      _selectedPageChanged: function(_selectedPage) {
+      _selectedPageChanged(_selectedPage) {
         if (this._pageAvaliable(_selectedPage)) {
           this._importPage(_selectedPage);
         } else {
           this._importPage('notFound');
         }
-      },
+      }
 
-      _importPage: function(page) {
+      _importPage(page) {
         var resolvedPageUrl = this.resolveUrl(this._pagesPaths[page]);
         this.importHref(resolvedPageUrl, null, null, true);
-      },
+      }
 
-      _pageAvaliable: function(page) {
+      _pageAvaliable(page) {
         return page in this._pagesPaths;
       }
-    });
+    }
+
+    customElements.define(AppShell.is, AppShell);
   </script>
 </dom-module>
