@@ -34,8 +34,12 @@ The complete set of contributors may be found at https://ibmresearch.github.io/C
     <h2>Try <a href="[[rootPath]]">go to home</a></h2>
   </template>
   <script>
-    Polymer({
-      is: 'page-not-found'
-    });
+
+    class PageNotFound extends Polymer.Element {
+      static get is() { return 'page-not-found'; }
+    }
+
+    customElements.define(PageNotFound.is, PageNotFound);
+
   </script>
 </dom-module>

@@ -66,68 +66,73 @@ The complete set of contributors may be found at https://ibmresearch.github.io/C
     </app-header-layout>
   </template>
   <script>
-    Polymer({
-      is: 'app-shell',
+    class AppShell extends Polymer.Element {
 
-      properties: {
-        defaultSelectedPage: {
-          type: String,
-          value: 'home'
-        },
+      static get is() { return 'app-shell'; }
 
-        _routeData: {
-          type: Object
-        },
-
-        _routeTail: {
-          type: Object
-        },
-
-        _selectedPage: {
-          type: String,
-          observer: '_selectedPageChanged'
-        },
-
-        _pagesPaths: {
-          type: Object,
-          value: function() {
-            return {
-              home: 'page-home/page-home.html',
-              notFound: 'page-not-found/page-not-found.html'
-            };
+      static get properties() {
+        return {
+          defaultSelectedPage: {
+            type: String,
+            value: 'home'
+          },
+          _routeData: {
+            type: Object
+          },
+          _routeTail: {
+            type: Object
+          },
+          _selectedPage: {
+            type: String,
+            observer: '_selectedPageChanged'
+          },
+          _pagesPaths: {
+            type: Object,
+            value: function() {
+              return {
+                home: 'page-home/page-home.html',
+                notFound: 'page-not-found/page-not-found.html'
+              };
+            }
           }
         }
-      },
+      }
 
-      observers: [
-        '_routePageChanged(_routeData.page)'
-      ],
+      static get observers() {
+        return [
+          '_routePageChanged(_routeData.page)'
+        ]
+      }
 
-      _routePageChanged: function(page) {
+      _routePageChanged(page) {
         this._selectedPage = page || this.defaultSelectedPage;
 
         // Scroll to the top of the page on every route change. Use
         // `Polymer.AppLayout.scroll` with `behavior: 'silent'` to disable
         // header scroll effects during the scroll.
         Polymer.AppLayout.scroll({ top: 0, behavior: 'silent' });
-      },
+      }
 
-      _selectedPageChanged: function(_selectedPage) {
+      _selectedPageChanged(_selectedPage) {
         if (this._pageAvaliable(_selectedPage)) {
           this._importPage(_selectedPage);
         } else {
           this._importPage('notFound');
         }
-      },
+      }
 
-      _importPage: function(page) {
+      _importPage(page) {
         var resolvedPageUrl = this.resolveUrl(this._pagesPaths[page]);
         this.importHref(resolvedPageUrl, null, null, true);
-      },
+      }
 
-      _pageAvaliable: function(page) {
+      _pageAvaliable(page) {
         return page in this._pagesPaths;
       }
-    });
+
+    }
+
+    customElements.define(AppShell.is, AppShell);
+
   </script>
 </dom-module>
