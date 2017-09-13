@@ -31,7 +31,7 @@ The complete set of contributors may be found at https://ibmresearch.github.io/C
     </app-location>
     <app-route
         route="{{route}}"
-        pattern="[[rootPath]]:page"
+        pattern="[[rootPath]]:pageId"
         data="{{_routeData}}"
         tail="{{_routeTail}}">
     </app-route>
@@ -44,22 +44,22 @@ The complete set of contributors may be found at https://ibmresearch.github.io/C
           </a>
           <span main-title spacer><%= applicationName %></span>
           <ibm-tabs
-              selected="[[_selectedPage]]"
-              attr-for-selected="page-name"
+              selected="[[_selectedPageId]]"
+              attr-for-selected="page-id"
               role="navigation">
             <a href="[[rootPath]]" tabindex="-1">
-              <ibm-tab page-name="home">Home</ibm-tab>
+              <ibm-tab page-id="home">Home</ibm-tab>
             </a>
           </ibm-tabs>
         </ibm-toolbar>
       </app-header>
       <iron-pages
-          selected="[[_selectedPage]]"
-          attr-for-selected="page-name"
+          selected="[[_selectedPageId]]"
+          attr-for-selected="page-id"
           fallback-selection="notFound"
           role="main">
-        <page-home page-name="home"></page-home>
-        <page-not-found page-name="notFound"></page-not-found>
+        <page-home page-id="home"></page-home>
+        <page-not-found page-id="notFound"></page-not-found>
       </iron-pages>
     </app-header-layout>
   </template>
@@ -71,7 +71,10 @@ The complete set of contributors may be found at https://ibmresearch.github.io/C
 
       static get properties() {
         return {
-          defaultSelectedPage: {
+          /**
+           * The default selected page id.
+           */
+          defaultSelectedPageId: {
             type: String,
             value: 'home'
           },
@@ -84,9 +87,9 @@ The complete set of contributors may be found at https://ibmresearch.github.io/C
             type: Object
           },
 
-          _selectedPage: {
+          _selectedPageId: {
             type: String,
-            observer: '_selectedPageChanged'
+            observer: '_selectedPageIdChanged'
           },
 
           _pagesPaths: {
@@ -103,12 +106,12 @@ The complete set of contributors may be found at https://ibmresearch.github.io/C
 
       static get observers() {
         return [
-          '_routePageChanged(_routeData.page)'
+          '_routePageIdChanged(_routeData.pageId)'
         ];
       }
 
-      _routePageChanged(page) {
-        this._selectedPage = page || this.defaultSelectedPage;
+      _routePageIdChanged(pageId) {
+        this._selectedPageId = pageId || this.defaultSelectedPageId;
 
         // Scroll to the top of the page on every route change. Use
         // `Polymer.AppLayout.scroll` with `behavior: 'silent'` to disable
@@ -116,21 +119,21 @@ The complete set of contributors may be found at https://ibmresearch.github.io/C
         Polymer.AppLayout.scroll({ top: 0, behavior: 'silent' });
       }
 
-      _selectedPageChanged(_selectedPage) {
-        if (this._pageAvaliable(_selectedPage)) {
-          this._importPage(_selectedPage);
+      _selectedPageIdChanged(_selectedPageId) {
+        if (this._pageAvaliable(_selectedPageId)) {
+          this._importPage(_selectedPageId);
         } else {
           this._importPage('notFound');
         }
       }
 
-      _importPage(page) {
-        var resolvedPageUrl = this.resolveUrl(this._pagesPaths[page]);
+      _importPage(pageId) {
+        var resolvedPageUrl = this.resolveUrl(this._pagesPaths[pageId]);
         Polymer.importHref(resolvedPageUrl, null, null, true);
       }
 
-      _pageAvaliable(page) {
-        return page in this._pagesPaths;
+      _pageAvaliable(pageId) {
+        return pageId in this._pagesPaths;
       }
     }
 
