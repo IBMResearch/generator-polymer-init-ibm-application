@@ -46,7 +46,7 @@ Command for production build:
 
 This command serves the minified version of the app at `http://127.0.0.1:8081`:
 
-    polymer serve build/ --open
+    polymer serve build/es5-bundled/ --open
 
 ## Run lint
 
