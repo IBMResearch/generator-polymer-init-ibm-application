@@ -7,12 +7,11 @@
   ],
   "sources": [
     "images/**/*",
-    "src/**/*",
-    "bower.json",
-    "manifest.json"
+    "src/**/*"
   ],
   "extraDependencies": [
-    "bower_components/webcomponentsjs/*.js"
+    "bower_components/webcomponentsjs/*.js",
+    "!bower_components/webcomponentsjs/gulpfile.js"
   ],
   "lint": {
     "rules": [
