@@ -2,7 +2,7 @@
   "name": "<%= applicationName %>",
   "short_name": "<%= applicationName %>",
   "description": "<%= applicationDescription %>",
-  "start_url": "./?utm_source=homescreen",
+  "start_url": "/?utm_source=web_app_manifest",
   "display": "standalone",
   "theme_color": "#4178be",
   "background_color": "#ffffff",
